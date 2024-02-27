@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Calendar</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #333; /* Dark gray background */
+            color: black; /* Black text color */
+        }
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            text-align: center;
+        }
+        .calendar-header {
+            margin-bottom: 20px;
+        }
+        .prev-month, .next-month {
+            cursor: pointer;
+            font-size: 20px;
+            margin: 0 10px;
+            color: #fff; /* Arrow color */
+        }
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+        th, td {
+            border: 1px solid white;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
+        }
+        td {
+            background-color: rgba(0, 0, 0, 0.2); /* Transparent black */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Calendar</h1>
+        <div class="calendar-header">
+            <span class="prev-month" onclick="prevMonth()">&#10094;</span>
+            <span id="month-year"></span>
+            <span class="next-month" onclick="nextMonth()">&#10095;</span>
+        </div>
+        <div id="calendar"></div>
+    </div>
+
+    <script>
+        let currentYear, currentMonth;
+
+        function generateCalendar(year, month) {
+            const monthNames = ["January", "February", "March", "April", "May", "June",
+                                "July", "August", "September", "October", "November", "December"];
+            
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+
+            let html = `<table>`;
+            html += `<tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr>`;
+            
+            let dayCounter = 1;
+            for (let i = 0; i < 6; i++) {
+                html += `<tr>`;
+                for (let j = 0; j < 7; j++) {
+                    if (i === 0 && j < firstDayOfMonth) {
+                        html += `<td></td>`;
+                    } else if (dayCounter > daysInMonth) {
+                        html += `<td></td>`;
+                    } else {
+                        html += `<td>${dayCounter}</td>`;
+                        dayCounter++;
+                    }
+                }
+                html += `</tr>`;
+            }
+            html += `</table>`;
+
+            document.getElementById("calendar").innerHTML = html;
+            document.getElementById("month-year").textContent = `${monthNames[month]} ${year}`;
+        }
+
+        function prevMonth() {
+            currentMonth--;
+            if (currentMonth < 0) {
+                currentMonth = 11;
+                currentYear--;
+            }
+            generateCalendar(currentYear, currentMonth);
+        }
+
+        function nextMonth() {
+            currentMonth++;
+            if (currentMonth > 11) {
+                currentMonth = 0;
+                currentYear++;
+            }
+            generateCalendar(currentYear, currentMonth);
+        }
+
+        const now = new Date();
+        currentYear = now.getFullYear();
+        currentMonth = now.getMonth();
+        generateCalendar(currentYear, currentMonth);
+    </script>
+</body>
+</html>
