@@ -1,39 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cafe Menu</title>
-    <link href="style.css" rel="stylesheet"/>
-  </head>
-  <body>
-    <div class="menu">
-      <main>
-        <h1>CAMPER CAFE</h1>
-        <p>Est. 2020</p>
-        <section>
-          <h2>Coffee</h2>
-          <article class="item">
-            <p class="flavor">French Vanilla</p><p class="price">3.00</p>
-          </article>
-          <article>
-            <p>Caramel Macchiato</p>
-            <p>3.75</p>
-          </article>
-          <article>
-            <p>Pumpkin Spice</p>
-            <p>3.50</p>
-          </article>
-          <article>
-            <p>Hazelnut</p>
-            <p>4.00</p>
-          </article>
-          <article>
-            <p>Mocha</p>
-            <p>4.50</p>
-          </article>
-        </section>
-      </main>
-    </div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="title">Survey Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 id="title">Survey Form</h1>
+  <p id="description">Please fill out the survey form below:</p>
+  
+  <form id="survey-form">
+    <label for="name" id="name-label">Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+    
+    <label for="email" id="email-label">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    
+    <label for="number" id="number-label">Age:</label>
+    <input type="number" id="number" placeholder="Enter a number" min="13" max="120" required>
+    
+    <label for="dropdown">Select an option:</label>
+    <select id="dropdown">
+      <option value="option1">Option 1</option>
+      <option value="option2">Option 2</option>
+    </select>
+    
+    <label>Choose an option:</label>
+    <label for="o1">
+      <input class="inline" type="radio" name="option" value="option1" id="o1">
+      Option 1
+    </label>
+    <label for="o2">
+      <input class="inline" type="radio" name="option" value="option2" id="o2">
+      Option 2
+    </label>
+    
+    <label>Choose multiple options:</label>
+    <label for="check1">
+      <input class="inline" id="check1" type="checkbox" name="checkbox" value="option1" id="check1">
+      Option 1
+    </label>
+    <label for="check2">
+      <input class="inline" id="check2" type="checkbox" name="checkbox" value="option2" id="check2">
+      Option 2
+    </label>
+    
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" placeholder="Enter your comments"></textarea>
+    
+    <button type="submit" id="submit">Submit</button>
+  </form>
+  
+  <script src="script.js"></script>
+</body>
 </html>

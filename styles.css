@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "zh-cn (1)";
+  src: url(zh-cn\ \(1\).ttf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aquamarine;
+  font-family: "zh-cn (1)";
+}
+
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+
+form {
+  border: 1px solid black;
+  width: 80vw;
+  max-width: 800px;
+  margin: auto;
+  padding: 1em 1.5em;
+  border-radius: 1em;
+}
+
+label {
+  font-size: 1.25em;
+  display:block;
+  margin: 1em 0 0.5em;
+}
+
+input {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 0.5em;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  outline: none;
+  border-color: blue;
+}
+
+#dropdown {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.5em;
+  border-radius: 0.5em;
+  border: 1px solid #ccc;
+}
+
+.inline {
+  display: inline;
+  width: unset;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  border: 1px solid #ccc;
+}
+
+button {
+  display: block;
+  width: 60%;
+  margin: 0.8em auto;
+  padding: 0.7em;
+  font-size: 1.1em;
+  border-radius: 0.5em;
+  border: none;
+}
